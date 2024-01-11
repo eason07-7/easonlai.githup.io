@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>作品區</title>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+    background-image: url(imagge/c3kzTYtxrU%20-%20%E8%A4%87%E8%A3%BD.jpg);
+}
+</style>
+</head>
+<body>
+<h1>作品區</h1>
+    <img src="imagge/1658292372777.jpg" width="450">
+
+<h2>真實身高體重判斷器</h2>
+    <form id="myForm">
+        身高 (公分): <input type="number" id="height" name="height"><br>
+        體重 (公斤): <input type="number" id="weight" name="weight"><br>
+        性別: 
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">男性</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">女性</label><br>
+        <input type="button" value="提交" onclick="calculate()">
+        <input type="button" value="清零" onclick="resetForm()">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            var height = document.getElementById('height').value;
+            var weight = document.getElementById('weight').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var result = document.getElementById('result');
+
+            if (gender === 'male') {
+                height = parseInt(height) + 10;
+                result.innerHTML = "你真實的身高/體重: " + height + "/" + weight;
+            } else if (gender === 'female') {
+                var idealBMI = 21.5; // 女生普遍最愛的BMI值
+                var adjustedWeight = idealBMI * Math.pow(height / 100, 2);
+                adjustedWeight = adjustedWeight.toFixed(2); // 保留兩位小數
+                result.innerHTML = "你真實的身高/體重: " + height + "/" + adjustedWeight;
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('myForm').reset();
+            document.getElementById('result').innerHTML = "";
+        }
+    </script>
+ <h2><a href="#tableTennis">桌球</a></h2>
+	 <div id="tableTennis">
+        <img src="imagge/R (1).jpg" width="450">
+        <img src="imagge/OI.jpg" width="450">
+        <img src="imagge/pexels-976873.jpg" width="450">
+    </div>
+
+    <!-- Add your hyperlink here -->
+    <h2 id="tableTennis">桌球</h2>
+
+    <table align="center">
+        <tr>
+            <td><a href="index.html"><img src="imagge/ytreo j.png" width="100" height="45" alt="回到首頁"/></a></td>
+        </tr>
+    </table>
+</body>
+</html>
+
